@@ -10,10 +10,8 @@ import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
-    lateinit var etEmail:EditText
-    lateinit var etPassword:EditText
     lateinit var btnLogin:Button
-
+    lateinit var btnSignUp : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,18 +20,19 @@ class MainActivity : AppCompatActivity() {
         Click()
     }
     fun castViews() {
-        etEmail = findViewById<EditText>(R.id.etEmailLbl)
-        etPassword = findViewById<EditText>(R.id.etPasswordLbl)
         btnLogin = findViewById<Button>(R.id.btnLogin)
+        btnSignUp = findViewById(R.id.btnSignUp)
     }
 
     fun Click(){
         btnLogin.setOnClickListener {
-            var email= etEmail.text.toString()
-            var password = etPassword.text.toString()
             var intent=Intent(baseContext,nextPage::class.java)
             startActivity(intent)
 
+        }
+        btnSignUp.setOnClickListener {
+            var intent = Intent(baseContext,signPage::class.java)
+            startActivity(intent)
         }
     }
 }
